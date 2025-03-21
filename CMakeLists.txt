@@ -6,7 +6,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_executable(1D-array-of-structures
 src/main.cpp
 src/menu.cpp
-src/student.cpp
-src/utils.cpp)
+src/student.cpp)
 
-target_include_directories(1D-array-of-structures PRIVATE include/)
+target_include_directories(1D-array-of-structures PRIVATE include)

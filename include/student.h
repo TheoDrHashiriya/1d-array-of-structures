@@ -9,6 +9,9 @@ struct Student {
   double GPA = 0;
 };
 
+std::string enterSearchID();
+void sortAlphabetically(Student students[], int studentCount);
+void sortByGPA(Student students[], int studentCount);
 void displayStudentData(const Student students[], int index);
 void displayAllStudentData(const Student students[], int studentCount);
 int searchStudentData(Student students[], int studentCount);

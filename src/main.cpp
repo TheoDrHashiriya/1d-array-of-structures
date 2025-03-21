@@ -1,6 +1,5 @@
 #include "menu.h"
 #include "student.h"
-#include "utils.h"
 #include <iostream>
 
 int main() {

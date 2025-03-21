@@ -1,7 +1,38 @@
 #include "student.h"
 #include "menu.h"
-#include "utils.h"
 #include <iostream>
+
+std::string enterSearchID() {
+  std::string searchID;
+  std::cout << "Search for student ID: ";
+  std::cin >> searchID;
+
+  return searchID;
+}
+
+void sortAlphabetically(Student students[], int studentCount) {
+  for (int i = 0; i < studentCount - 1; i++) {
+    for (int j = 0; j < studentCount - i - 1; j++) {
+      if (students[j].lastName > students[j + 1].lastName) {
+        Student temp = students[j];
+        students[j] = students[j + 1];
+        students[j + 1] = temp;
+      }
+    }
+  }
+}
+
+void sortByGPA(Student students[], int studentCount) {
+  for (int i = 0; i < studentCount - 1; i++) {
+    for (int j = 0; j < studentCount - i - 1; j++) {
+      if (students[j].GPA > students[j + 1].GPA) {
+        Student temp = students[j];
+        students[j] = students[j + 1];
+        students[j + 1] = temp;
+      }
+    }
+  }
+}
 
 void displayStudentData(const Student students[], int index) {
   std::cout << "=========================\n";
@@ -54,7 +85,7 @@ void addStudentData(Student students[], int studentCount, int index) {
     std::cout << "Student count exceeded! Enroll somewhere else!\n";
     return;
   }
-  std::cout << "\nEnter Student ID: ";
+  std::cout << "Enter Student ID: ";
   std::cin >> students[index].studentID;
   std::cout << "Enter first name: ";
   std::cin >> students[index].firstName;

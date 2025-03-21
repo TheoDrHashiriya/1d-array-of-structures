@@ -1,7 +1,37 @@
 #include "menu.h"
 #include "student.h"
-#include "utils.h"
 #include <iostream>
+#include <limits>
+
+void clearScreen() {
+#ifdef _WIN32
+  std::cout.flush();
+  system("cls");
+#else
+  std::cout.flush();
+  system("clear");
+#endif
+}
+
+// this method of pausing the screen should be more universal...
+void pauseScreen() {
+  std::cout << "Press enter to go back to main menu: ";
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  std::cin.get();
+}
+
+char enterOption(char option) {
+  std::cout << "Enter option: ";
+  std::cin >> option;
+
+  while (option != '1' && option != '2' && option != '3' && option != '4' &&
+         option != '5') {
+    std::cout << "Invalid input. Enter another option: ";
+    std::cin >> option;
+  }
+
+  return option;
+}
 
 void displayMenu() {
   std::cout << "==========STUDENT MANAGEMENT SYSTEM==========\n";
